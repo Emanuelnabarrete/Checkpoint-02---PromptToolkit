@@ -1,0 +1,24 @@
+{
+  "classificacao_sentimento": [
+    {
+      "input": "Produto excelente e entrega rápida",
+      "esperado": "POSITIVO"
+    },
+    {
+      "input": "Produto veio quebrado",
+      "esperado": "NEGATIVO"
+    },
+    {
+      "input": "Produto normal",
+      "esperado": "NEUTRO"
+    },
+    {
+      "input": "Gostei bastante do atendimento",
+      "esperado": "POSITIVO"
+    },
+    {
+      "input": "Muito ruim e demorado",
+      "esperado": "NEGATIVO"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+tarefa,tecnica,resposta,esperado,acuracia,tempo_ms
+classificacao_sentimento,zero_shot,POSITIVO,POSITIVO,1,2509.13
+classificacao_sentimento,few_shot,"Fácil!
+
+Sendo o texto ""Produto excelente e entrega rápida"", o sentimento é POSITIVO.",POSITIVO,0,2949.08
+classificacao_sentimento,cot,"**Análise passo a passo:**
+
+1. **Analise o texto**: O texto é curto e simples, mas consegue transmitir uma mensagem positiva sobre um produto.
+2. **Veja palavras positivas**: Encontramos a palavra ""excelente"", que tem um significado extremamente positivo.
+3. **Veja palavras negativas**: Não há palavras negativas no texto.
+4. **Classifique**: Com base nas informações, o sentimento é **POSITIVO**.
+
+Portanto, a classificação do sentimento é: **POSITIVO**",POSITIVO,0,5377.52
+classificacao_sentimento,zero_shot,NEGATIVO,NEGATIVO,1,2346.88
+classificacao_sentimento,few_shot,NEUTRO,NEGATIVO,0,2435.72
+classificacao_sentimento,cot,"**Análise do texto**
+
+* O texto descreve um produto que ""veio quebrado"", o que sugere uma situação negativa.
+
+**Palavras positivas**
+
+Não há palavras positivas no texto.
+
+**Palavras negativas**
+
+* Quebrado: palavra que carrega um sentimento negativo, indicando a existência de algo ruim ou danificado.
+
+**Classificação do sentimento**
+
+DEVIDO AO CARÁTER NEGATIVO DA PALAVRA ""QUEBRADO"", EU CLASSIFICAREI ESTE SENTIMENTO COMO:
+
+NEGATIVO",NEGATIVO,0,5287.43
+classificacao_sentimento,zero_shot,NEUTRO,NEUTRO,1,2397.45
+classificacao_sentimento,few_shot,NEUTRO,NEUTRO,1,2466.35
+classificacao_sentimento,cot,"Let's analyze the text step by step:
+
+**Análise o texto**: The text simply says ""Produto normal"" (Normal Product).
+
+**Veja palavras positivas**: There are no overtly positive words in this text.
+
+**Veja palavras negativas**: Similarly, there are no overtly negative words in this text.
+
+**Classifique**: Based on the analysis, I would classify the sentiment as **NEUTRO**. The text does not express any strong emotions or opinions, and the word ""normal"" is quite neutral.",NEUTRO,0,4997.88
+classificacao_sentimento,zero_shot,POSITIVO,POSITIVO,1,2400.23
+classificacao_sentimento,few_shot,"RESPOSTA:
+
+POSITIVO",POSITIVO,0,2519.53
+classificacao_sentimento,cot,"Análise passo a passo:
+
+**Analise o texto:** O texto é curto e simples, dizendo que ""gostei bastante do atendimento"".
+
+**Veja palavras positivas:**
+
+* Gostei (indicador de aprovação)
+* Bastante (adverbio que intensifica a expressão de prazer)
+
+**Veja palavras negativas:** Nenhuma palavra com conotação negativa foi encontrada no texto.
+
+**Classifique:** Sentimento é **POSITIVO**, pois o texto expressa satisfação e aprovação pelo atendimento recebido.",POSITIVO,0,5490.33
+classificacao_sentimento,zero_shot,NEGATIVO,NEGATIVO,1,2409.96
+classificacao_sentimento,few_shot,NEGATIVO,NEGATIVO,1,2421.67
+classificacao_sentimento,cot,"Passo a passo:
+
+1. Analise o texto: O texto é curto e contém apenas uma frase que descreve um estado de coisas (ou sentimento) com relação a algo.
+2. Veja palavras positivas: Não há palavras positivas no texto.
+3. Veja palavras negativas: Há duas palavras negativas: ""ruim"" e ""demorado"".
+4. Classifique:
+
+Sentimento: NEGATIVO
+
+Justificativa: A presença de palavras como ""ruim"" e ""demorado"", que têm conotação negativa, indica que o sentimento é predominantemente negativo.",NEGATIVO,0,5599.67

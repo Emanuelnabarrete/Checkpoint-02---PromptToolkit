@@ -1,0 +1,46 @@
+{
+  "sentiment_classification": [
+    {
+      "input": "Amazing product",
+      "output": "POSITIVE"
+    },
+    {
+      "input": "Terrible experience",
+      "output": "NEGATIVE"
+    },
+    {
+      "input": "Average service",
+      "output": "NEUTRAL"
+    }
+  ],
+
+  "urgency_classification": [
+    {
+      "input": "I need help immediately",
+      "output": "HIGH"
+    },
+    {
+      "input": "Can you verify this later?",
+      "output": "MEDIUM"
+    },
+    {
+      "input": "Just a simple question",
+      "output": "LOW"
+    }
+  ],
+
+  "issue_category": [
+    {
+      "input": "The item arrived broken",
+      "output": "DAMAGED_PRODUCT"
+    },
+    {
+      "input": "My order is delayed",
+      "output": "DELIVERY_DELAY"
+    },
+    {
+      "input": "I was charged twice",
+      "output": "PAYMENT_ISSUE"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "classification_template": {
+    "instruction": "Classify the customer message.",
+    "format": "Answer only with the correct label."
+  },
+
+  "urgency_template": {
+    "instruction": "Identify the urgency level of the message.",
+    "format": "Answer only with HIGH, MEDIUM or LOW."
+  },
+
+  "issue_template": {
+    "instruction": "Identify the issue category from the customer message.",
+    "format": "Answer only with the correct issue category."
+  }
+}

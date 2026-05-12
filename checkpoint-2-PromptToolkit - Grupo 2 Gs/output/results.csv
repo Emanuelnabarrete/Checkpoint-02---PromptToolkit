@@ -1,41 +1,41 @@
 task,technique,input,expected,answer,accuracy,prompt_tokens,answer_tokens,total_tokens,time_ms
-sentiment_classification,zero_shot,Excellent product and fast delivery,POSITIVE,POSITIVE,1,49,2,51,16852.54
-sentiment_classification,few_shot,Excellent product and fast delivery,POSITIVE,POSITIVE,1,84,2,86,2514.53
-sentiment_classification,chain_of_thought,Excellent product and fast delivery,POSITIVE,POSITIVE,1,93,2,95,2410.32
-sentiment_classification,role_prompting,Excellent product and fast delivery,POSITIVE,POSITIVE,1,49,2,51,2520.91
-sentiment_classification,zero_shot,The product arrived broken,NEGATIVE,NEGATIVE,1,48,2,50,2388.01
-sentiment_classification,few_shot,The product arrived broken,NEGATIVE,NEGATIVE,1,83,2,85,2417.3
-sentiment_classification,chain_of_thought,The product arrived broken,NEGATIVE,NEGATIVE,1,92,2,94,2408.6
-sentiment_classification,role_prompting,The product arrived broken,NEGATIVE,NEGATIVE,1,48,2,50,2397.91
-sentiment_classification,zero_shot,Normal experience,NEUTRAL,NEUTRAL,1,46,3,49,2398.78
-sentiment_classification,few_shot,Normal experience,NEUTRAL,NEUTRAL,1,81,3,84,2403.26
-sentiment_classification,chain_of_thought,Normal experience,NEUTRAL,POSITIVE,0,90,2,92,2393.12
-sentiment_classification,role_prompting,Normal experience,NEUTRAL,POSITIVE,0,46,2,48,2398.44
-sentiment_classification,zero_shot,I really liked the support service,POSITIVE,POSITIVE,1,50,2,52,2376.73
-sentiment_classification,few_shot,I really liked the support service,POSITIVE,POSITIVE,1,85,2,87,2423.01
-sentiment_classification,chain_of_thought,I really liked the support service,POSITIVE,POSITIVE,1,94,2,96,2404.03
-sentiment_classification,role_prompting,I really liked the support service,POSITIVE,POSITIVE,1,50,2,52,2404.8
-sentiment_classification,zero_shot,Very bad and slow service,NEGATIVE,NEGATIVE,1,49,2,51,2372.05
-sentiment_classification,few_shot,Very bad and slow service,NEGATIVE,NEGATIVE,1,84,2,86,2391.96
-sentiment_classification,chain_of_thought,Very bad and slow service,NEGATIVE,NEGATIVE,1,93,2,95,2427.21
-sentiment_classification,role_prompting,Very bad and slow service,NEGATIVE,NEGATIVE,1,49,2,51,2404.09
-urgency_classification,zero_shot,My order is 10 days late and I need it today,HIGH,HIGH,1,54,1,55,2347.53
-urgency_classification,few_shot,My order is 10 days late and I need it today,HIGH,HIGH,1,93,1,94,2419.26
-urgency_classification,chain_of_thought,My order is 10 days late and I need it today,HIGH,HIGH,1,92,1,93,2399.87
-urgency_classification,role_prompting,My order is 10 days late and I need it today,HIGH,HIGH,1,54,1,55,2394.37
-urgency_classification,zero_shot,I would like to know when my product will be shipped,MEDIUM,MEDIUM,1,53,2,55,2380.35
-urgency_classification,few_shot,I would like to know when my product will be shipped,MEDIUM,MEDIUM,1,92,2,94,2434.01
-urgency_classification,chain_of_thought,I would like to know when my product will be shipped,MEDIUM,LOW,0,91,1,92,2375.97
-urgency_classification,role_prompting,I would like to know when my product will be shipped,MEDIUM,MEDIUM,1,53,2,55,2434.74
-urgency_classification,zero_shot,I just want to confirm if my account data is correct,LOW,MEDIUM,0,53,2,55,2367.7
-urgency_classification,few_shot,I just want to confirm if my account data is correct,LOW,LOW,1,92,1,93,2391.28
-urgency_classification,chain_of_thought,I just want to confirm if my account data is correct,LOW,LOW,1,91,1,92,2407.05
-urgency_classification,role_prompting,I just want to confirm if my account data is correct,LOW,MEDIUM,0,53,2,55,2430.65
-urgency_classification,zero_shot,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,52,1,53,2351.17
-urgency_classification,few_shot,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,91,1,92,2411.49
-urgency_classification,chain_of_thought,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,90,1,91,2398.92
-urgency_classification,role_prompting,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,52,1,53,2416.31
-urgency_classification,zero_shot,I have a question about payment methods,LOW,MEDIUM,0,49,2,51,2385.0
-urgency_classification,few_shot,I have a question about payment methods,LOW,LOW,1,88,1,89,2404.33
-urgency_classification,chain_of_thought,I have a question about payment methods,LOW,LOW,1,87,1,88,2382.68
-urgency_classification,role_prompting,I have a question about payment methods,LOW,MEDIUM,0,49,2,51,2440.62
+sentiment_classification,zero_shot,Excellent product and fast delivery,POSITIVE,POSITIVE,1,49,2,51,14195.07
+sentiment_classification,few_shot,Excellent product and fast delivery,POSITIVE,POSITIVE,1,84,2,86,2397.44
+sentiment_classification,chain_of_thought,Excellent product and fast delivery,POSITIVE,POSITIVE,1,93,2,95,2417.15
+sentiment_classification,role_prompting,Excellent product and fast delivery,POSITIVE,POSITIVE,1,49,2,51,2399.09
+sentiment_classification,zero_shot,The product arrived broken,NEGATIVE,NEGATIVE,1,48,2,50,2373.88
+sentiment_classification,few_shot,The product arrived broken,NEGATIVE,NEGATIVE,1,83,2,85,2412.76
+sentiment_classification,chain_of_thought,The product arrived broken,NEGATIVE,NEGATIVE,1,92,2,94,2413.37
+sentiment_classification,role_prompting,The product arrived broken,NEGATIVE,NEGATIVE,1,48,2,50,2439.18
+sentiment_classification,zero_shot,Normal experience,NEUTRAL,NEUTRAL,1,46,3,49,2491.32
+sentiment_classification,few_shot,Normal experience,NEUTRAL,NEUTRAL,1,81,3,84,2484.87
+sentiment_classification,chain_of_thought,Normal experience,NEUTRAL,NEUTRAL,1,90,3,93,2466.28
+sentiment_classification,role_prompting,Normal experience,NEUTRAL,NEUTRAL,1,46,3,49,2532.21
+sentiment_classification,zero_shot,I really liked the support service,POSITIVE,POSITIVE,1,50,2,52,2406.98
+sentiment_classification,few_shot,I really liked the support service,POSITIVE,POSITIVE,1,85,2,87,2524.66
+sentiment_classification,chain_of_thought,I really liked the support service,POSITIVE,POSITIVE,1,94,2,96,2428.56
+sentiment_classification,role_prompting,I really liked the support service,POSITIVE,POSITIVE,1,50,2,52,2405.08
+sentiment_classification,zero_shot,Very bad and slow service,NEGATIVE,NEGATIVE,1,49,2,51,2387.96
+sentiment_classification,few_shot,Very bad and slow service,NEGATIVE,NEGATIVE,1,84,2,86,2411.82
+sentiment_classification,chain_of_thought,Very bad and slow service,NEGATIVE,NEGATIVE,1,93,2,95,2403.46
+sentiment_classification,role_prompting,Very bad and slow service,NEGATIVE,NEGATIVE,1,49,2,51,2398.21
+urgency_classification,zero_shot,My order is 10 days late and I need it today,HIGH,HIGH,1,54,1,55,2336.65
+urgency_classification,few_shot,My order is 10 days late and I need it today,HIGH,HIGH,1,93,1,94,2260.09
+urgency_classification,chain_of_thought,My order is 10 days late and I need it today,HIGH,HIGH,1,92,1,93,2266.65
+urgency_classification,role_prompting,My order is 10 days late and I need it today,HIGH,HIGH,1,54,1,55,2271.74
+urgency_classification,zero_shot,I would like to know when my product will be shipped,MEDIUM,MEDIUM,1,53,2,55,2273.89
+urgency_classification,few_shot,I would like to know when my product will be shipped,MEDIUM,MEDIUM,1,92,2,94,2282.64
+urgency_classification,chain_of_thought,I would like to know when my product will be shipped,MEDIUM,LOW,0,91,1,92,2384.12
+urgency_classification,role_prompting,I would like to know when my product will be shipped,MEDIUM,MEDIUM,1,53,2,55,2524.01
+urgency_classification,zero_shot,I just want to confirm if my account data is correct,LOW,LOW,1,53,1,54,2339.06
+urgency_classification,few_shot,I just want to confirm if my account data is correct,LOW,LOW,1,92,1,93,2411.3
+urgency_classification,chain_of_thought,I just want to confirm if my account data is correct,LOW,LOW,1,91,1,92,2417.68
+urgency_classification,role_prompting,I just want to confirm if my account data is correct,LOW,MEDIUM,0,53,2,55,2404.22
+urgency_classification,zero_shot,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,52,1,53,2368.63
+urgency_classification,few_shot,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,91,1,92,2410.68
+urgency_classification,chain_of_thought,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,90,1,91,2383.1
+urgency_classification,role_prompting,I received the wrong product and need an urgent exchange,HIGH,HIGH,1,52,1,53,2460.68
+urgency_classification,zero_shot,I have a question about payment methods,LOW,MEDIUM,0,49,2,51,2389.13
+urgency_classification,few_shot,I have a question about payment methods,LOW,LOW,1,88,1,89,2376.86
+urgency_classification,chain_of_thought,I have a question about payment methods,LOW,LOW,1,87,1,88,2372.94
+urgency_classification,role_prompting,I have a question about payment methods,LOW,MEDIUM,0,49,2,51,2453.23

@@ -4,4 +4,4 @@ Best overall technique: few_shot
 Reason:
 This technique achieved an average accuracy of 1.00,
 used an average of 89.00 tokens,
-and had an average response time of 2421.04 ms.
+and had an average response time of 2397.31 ms.

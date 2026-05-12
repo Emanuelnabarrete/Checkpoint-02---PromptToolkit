@@ -1,31 +1,68 @@
-tarefas = [
-
+tasks = [
     {
-        "nome": "classificacao_sentimento",
+        "name": "sentiment_classification",
 
-        "instrucao": "Classifique o sentimento.",
+        "instruction":
+        "Classify the sentiment of the customer message.",
 
-        "formato_output": "POSITIVO, NEGATIVO ou NEUTRO",
+        "output_format":
+        "Answer only with: POSITIVE, NEGATIVE or NEUTRAL.",
 
-        "exemplos_fewshot": [
+        "few_shot_examples": [
             {
-                "input": "Muito bom",
-                "output": "POSITIVO"
+                "input": "Amazing product",
+                "output": "POSITIVE"
             },
             {
-                "input": "Muito ruim",
-                "output": "NEGATIVO"
+                "input": "Terrible service",
+                "output": "NEGATIVE"
+            },
+            {
+                "input": "Average experience",
+                "output": "NEUTRAL"
             }
         ],
 
-        "passos_cot": [
-            "Analise o texto",
-            "Veja palavras positivas",
-            "Veja palavras negativas",
-            "Classifique"
+        "cot_steps": [
+            "Identify positive words.",
+            "Identify negative words.",
+            "Check if the text is neutral.",
+            "Choose only one final classification."
         ],
 
-        "persona": "analista_cx"
-    }
+        "persona": "customer_expert"
+    },
 
+    {
+        "name": "urgency_classification",
+
+        "instruction":
+        "Classify the urgency level of the customer message.",
+
+        "output_format":
+        "Answer only with: HIGH, MEDIUM or LOW.",
+
+        "few_shot_examples": [
+            {
+                "input": "I need this fixed today",
+                "output": "HIGH"
+            },
+            {
+                "input": "Can you check this later?",
+                "output": "MEDIUM"
+            },
+            {
+                "input": "Just a quick question",
+                "output": "LOW"
+            }
+        ],
+
+        "cot_steps": [
+            "Check if there is a critical deadline.",
+            "Evaluate customer impact.",
+            "Choose the urgency level."
+        ],
+
+        "persona": "customer_expert"
+    }
 ]

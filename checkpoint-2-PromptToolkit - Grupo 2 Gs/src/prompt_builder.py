@@ -1,38 +1,38 @@
-def montar_prompt(instrucao, input_dados, formato_output):
+def build_prompt(instruction, input_data, output_format):
+    if not instruction or not input_data or not output_format:
+        raise ValueError("Invalid prompt: missing required fields.")
 
-    prompt = f"""
-Instrucao:
-{instrucao}
+    return f"""
+INSTRUCTION:
+{instruction}
 
-Texto:
-{input_dados}
+CUSTOMER MESSAGE:
+{input_data}
 
-Formato:
-{formato_output}
+OUTPUT FORMAT:
+{output_format}
+
+IMPORTANT:
+Answer only in the requested format.
 """
 
-    return prompt
+
+def add_examples(prompt, examples):
+    examples_text = "\nEXAMPLES:\n"
+
+    for example in examples:
+        examples_text += f"Input: {example['input']}\n"
+        examples_text += f"Output: {example['output']}\n\n"
+
+    return examples_text + prompt
 
 
-def adicionar_exemplos(prompt, exemplos):
+def add_cot_steps(prompt, steps):
+    steps_text = "\nTHINK STEP BY STEP:\n"
 
-    texto_exemplos = "\nEXEMPLOS:\n"
+    for index, step in enumerate(steps, start=1):
+        steps_text += f"{index}. {step}\n"
 
-    for exemplo in exemplos:
+    steps_text += "\nFinal answer must contain only the final label.\n"
 
-        texto_exemplos += f"""
-Input: {exemplo['input']}
-Output: {exemplo['output']}
-"""
-
-    return texto_exemplos + prompt
-
-
-def adicionar_cot(prompt, passos):
-
-    texto = "\nAnalise passo a passo:\n"
-
-    for passo in passos:
-        texto += f"- {passo}\n"
-
-    return texto + prompt
+    return steps_text + prompt

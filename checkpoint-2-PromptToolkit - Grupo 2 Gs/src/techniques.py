@@ -1,53 +1,51 @@
-from src.prompt_builder import (
-    montar_prompt,
-    adicionar_exemplos,
-    adicionar_cot
-)
+from src.prompt_builder import build_prompt, add_examples, add_cot_steps
 
 
-def zero_shot(tarefa, texto):
-
-    return montar_prompt(
-        tarefa["instrucao"],
-        texto,
-        tarefa["formato_output"]
+def zero_shot(task, text):
+    prompt = build_prompt(
+        task["instruction"],
+        text,
+        task["output_format"]
     )
 
+    return "", prompt
 
-def few_shot(tarefa, texto):
 
-    prompt = montar_prompt(
-        tarefa["instrucao"],
-        texto,
-        tarefa["formato_output"]
+def few_shot(task, text):
+    prompt = build_prompt(
+        task["instruction"],
+        text,
+        task["output_format"]
     )
 
-    return adicionar_exemplos(
+    prompt = add_examples(
         prompt,
-        tarefa["exemplos_fewshot"]
+        task["few_shot_examples"]
     )
 
+    return "", prompt
 
-def chain_of_thought(tarefa, texto):
 
-    prompt = montar_prompt(
-        tarefa["instrucao"],
-        texto,
-        tarefa["formato_output"]
+def chain_of_thought(task, text):
+    prompt = build_prompt(
+        task["instruction"],
+        text,
+        task["output_format"]
     )
 
-    return adicionar_cot(
+    prompt = add_cot_steps(
         prompt,
-        tarefa["passos_cot"]
+        task["cot_steps"]
     )
 
+    return "", prompt
 
-def role_prompting(tarefa, texto, persona):
 
-    prompt = montar_prompt(
-        tarefa["instrucao"],
-        texto,
-        tarefa["formato_output"]
+def role_prompting(task, text, persona):
+    prompt = build_prompt(
+        task["instruction"],
+        text,
+        task["output_format"]
     )
 
     return persona, prompt

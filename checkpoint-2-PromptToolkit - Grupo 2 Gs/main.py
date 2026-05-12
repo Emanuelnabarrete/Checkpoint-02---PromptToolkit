@@ -1,61 +1,148 @@
 import json
 
-from src.tasks import tarefas
+from src.tasks import tasks
+from src.llm_client import LLMClient
+
 from src.techniques import (
     zero_shot,
     few_shot,
-    chain_of_thought
+    chain_of_thought,
+    role_prompting
 )
 
-from src.llm_client import LLMClient
-from src.evaluator import medir_acuracia
-from src.report import gerar_tabela, grafico_acuracia
+from src.evaluator import (
+    count_tokens,
+    measure_accuracy,
+    measure_consistency
+)
+
+from src.report import (
+    generate_table,
+    chart_accuracy,
+    chart_tokens,
+    chart_time,
+    chart_temperature,
+    recommend_best_technique
+)
+
 
 client = LLMClient()
 
-with open("data/inputs.json", "r", encoding="utf-8") as f:
-    dados = json.load(f)
 
-resultados = []
+with open("data/inputs.json", "r", encoding="utf-8") as file:
+    input_data = json.load(file)
 
-for tarefa in tarefas:
 
-    nome = tarefa["nome"]
+with open("prompts/system_prompts.json", "r", encoding="utf-8") as file:
+    personas = json.load(file)
 
-    inputs = dados[nome]
 
-    for item in inputs:
+results = []
+temperature_results = []
 
-        texto = item["input"]
 
-        esperado = item["esperado"]
+for task in tasks:
+    task_name = task["name"]
+    task_inputs = input_data[task_name]
 
-        tecnicas = {
-            "zero_shot": zero_shot(tarefa, texto),
-            "few_shot": few_shot(tarefa, texto),
-            "cot": chain_of_thought(tarefa, texto)
+    for item in task_inputs:
+        text = item["input"]
+        expected = item["expected"]
+
+        persona = personas[task["persona"]]
+
+        techniques = {
+            "zero_shot": zero_shot(task, text),
+            "few_shot": few_shot(task, text),
+            "chain_of_thought": chain_of_thought(task, text),
+            "role_prompting": role_prompting(task, text, persona)
         }
 
-        for nome_tecnica, prompt in tecnicas.items():
+        for technique_name, technique_content in techniques.items():
+            system_prompt, user_prompt = technique_content
 
-            resposta = client.chat(prompt)
-
-            acuracia = medir_acuracia(
-                resposta["resposta"],
-                esperado
+            response = client.chat(
+                prompt=user_prompt,
+                system=system_prompt,
+                temperature=0.5,
+                max_tokens=20
             )
 
-            resultados.append({
-                "tarefa": nome,
-                "tecnica": nome_tecnica,
-                "resposta": resposta["resposta"],
-                "esperado": esperado,
-                "acuracia": acuracia,
-                "tempo_ms": resposta["tempo_ms"]
+            answer = response["answer"]
+
+            prompt_tokens = count_tokens(user_prompt)
+            answer_tokens = count_tokens(answer)
+            total_tokens = prompt_tokens + answer_tokens
+
+            accuracy = measure_accuracy(
+                answer,
+                expected
+            )
+
+            results.append({
+                "task": task_name,
+                "technique": technique_name,
+                "input": text,
+                "expected": expected,
+                "answer": answer,
+                "accuracy": accuracy,
+                "prompt_tokens": prompt_tokens,
+                "answer_tokens": answer_tokens,
+                "total_tokens": total_tokens,
+                "time_ms": response["time_ms"]
             })
 
-df = gerar_tabela(resultados)
 
-grafico_acuracia(df)
+first_task = tasks[0]
+first_input = input_data[first_task["name"]][0]["input"]
+first_persona = personas[first_task["persona"]]
 
-print(df)
+system_prompt, user_prompt = role_prompting(
+    first_task,
+    first_input,
+    first_persona
+)
+
+
+for temperature in [0.1, 0.5, 1.0]:
+    answers = []
+
+    for _ in range(3):
+        response = client.chat(
+            prompt=user_prompt,
+            system=system_prompt,
+            temperature=temperature,
+            max_tokens=20
+        )
+
+        answers.append(response["answer"])
+
+    consistency = measure_consistency(answers)
+
+    temperature_results.append({
+        "temperature": temperature,
+        "consistency": consistency,
+        "answers": answers
+    })
+
+
+df_results = generate_table(
+    results,
+    filename="output/results.csv"
+)
+
+chart_accuracy(df_results)
+chart_tokens(df_results)
+chart_time(df_results)
+
+df_temperature = generate_table(
+    temperature_results,
+    filename="output/temperature.csv"
+)
+
+chart_temperature(df_temperature)
+
+recommendation = recommend_best_technique(df_results)
+
+print(df_results)
+print(recommendation)

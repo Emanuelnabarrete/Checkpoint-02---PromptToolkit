@@ -1,24 +1,68 @@
 {
-  "classificacao_sentimento": [
+  "sentiment_classification": [
     {
-      "input": "Produto excelente e entrega rápida",
-      "esperado": "POSITIVO"
+      "input": "Excellent product and fast delivery",
+      "expected": "POSITIVE"
     },
     {
-      "input": "Produto veio quebrado",
-      "esperado": "NEGATIVO"
+      "input": "The product arrived broken",
+      "expected": "NEGATIVE"
     },
     {
-      "input": "Produto normal",
-      "esperado": "NEUTRO"
+      "input": "Normal experience",
+      "expected": "NEUTRAL"
     },
     {
-      "input": "Gostei bastante do atendimento",
-      "esperado": "POSITIVO"
+      "input": "I really liked the support service",
+      "expected": "POSITIVE"
     },
     {
-      "input": "Muito ruim e demorado",
-      "esperado": "NEGATIVO"
+      "input": "Very bad and slow service",
+      "expected": "NEGATIVE"
+    }
+  ],
+  "urgency_classification": [
+    {
+      "input": "My order is 10 days late and I need it today",
+      "expected": "HIGH"
+    },
+    {
+      "input": "I would like to know when my product will be shipped",
+      "expected": "MEDIUM"
+    },
+    {
+      "input": "I just want to confirm if my account data is correct",
+      "expected": "LOW"
+    },
+    {
+      "input": "I received the wrong product and need an urgent exchange",
+      "expected": "HIGH"
+    },
+    {
+      "input": "I have a question about payment methods",
+      "expected": "LOW"
+    }
+  ],
+  "issue_category": [
+    {
+      "input": "The product arrived broken",
+      "expected": "DAMAGED_PRODUCT"
+    },
+    {
+      "input": "My delivery is very late",
+      "expected": "DELIVERY_DELAY"
+    },
+    {
+      "input": "I was charged twice on my credit card",
+      "expected": "PAYMENT_ISSUE"
+    },
+    {
+      "input": "I want to exchange the product size",
+      "expected": "EXCHANGE_RETURN"
+    },
+    {
+      "input": "I cannot access my account",
+      "expected": "ACCOUNT_ISSUE"
     }
   ]
 }

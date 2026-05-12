@@ -1,22 +1,20 @@
-import requests
-import time
 import os
+import time
+import requests
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-OLLAMA_HOST = os.getenv("OLLAMA_HOST")
-MODEL = os.getenv("MODEL")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+MODEL = os.getenv("MODEL", "gpt-oss:120b")
 
 
 class LLMClient:
-
-    def chat(self, prompt, system="", temp=0.5):
-
+    def chat(self, prompt, system="", temperature=0.5, max_tokens=20):
         url = f"{OLLAMA_HOST}/api/chat"
 
-        body = {
+        payload = {
             "model": MODEL,
             "messages": [
                 {
@@ -28,25 +26,34 @@ class LLMClient:
                     "content": prompt
                 }
             ],
-            "stream": False
+            "stream": False,
+            "options": {
+                "temperature": temperature,
+                "num_predict": max_tokens
+            }
         }
 
-        inicio = time.time()
+        start_time = time.time()
 
-        response = requests.post(
-            url,
-            json=body
-        )
+        try:
+            response = requests.post(
+                url,
+                json=payload,
+                timeout=120
+            )
 
-        print(response.text)
+            response.raise_for_status()
 
-        data = response.json()
+            data = response.json()
 
-        fim = time.time()
+            answer = data["message"]["content"].strip()
 
-        resposta = data["message"]["content"]
+        except Exception as error:
+            answer = f"ERROR: {error}"
+
+        end_time = time.time()
 
         return {
-            "resposta": resposta,
-            "tempo_ms": round((fim - inicio) * 1000, 2)
+            "answer": answer,
+            "time_ms": round((end_time - start_time) * 1000, 2)
         }
